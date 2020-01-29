@@ -1,9 +1,13 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1010/eureka/  #\u6CE8\u518C\u4E2D\u5FC3\u670D\u52A1\u5730\u5740
+      defaultZone: http://192.168.150.3:1010/eureka/
 server:
   port: 2021  #\u5F53\u524D\u670D\u52A1\u7AEF\u53E3
 spring:
   application:
     name: user  #\u5F53\u524D\u670D\u52A1\u540D
+
+  redis:
+    cluster:
+      nodes: 192.168.150.3:6379,192.168.150.3:6380,192.168.150.3:6381,192.168.150.146:6379,192.168.150.146:6380,192.168.150.146:6381
