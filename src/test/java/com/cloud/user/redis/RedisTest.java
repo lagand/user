@@ -20,7 +20,7 @@ public class RedisTest {
     private RedisTemplate redisTemplate;
 
     @Test
-    public void test(){
+    public void test() {
 
 //        redisTemplate.opsForValue().set("test", "value");
 //        log.info("从redis 获取到结果 {} ", redisTemplate.opsForValue().get("test"));

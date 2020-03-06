@@ -7,7 +7,13 @@ server:
 spring:
   application:
     name: user  #\u5F53\u524D\u670D\u52A1\u540D
-
   redis:
     cluster:
       nodes: 192.168.150.3:6379,192.168.150.3:6380,192.168.150.3:6381,192.168.150.146:6379,192.168.150.146:6380,192.168.150.146:6381
+  profiles:
+    include: jdbc
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

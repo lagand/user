@@ -13,8 +13,8 @@ public class PriviledgeContrller {
     private static final Logger logger = LoggerFactory.getLogger(PriviledgeContrller.class);
 
     @RequestMapping("/getUser")
-    public String getUser(@RequestParam(value="name") String name){
+    public String getUser(@RequestParam(value = "name", required = false) String name) {
         logger.info(" recived user name : {}", name);
-        return "user"+name;
+        return "user" + name;
     }
 }

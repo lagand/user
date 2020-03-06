@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.user.dao.UserDao">
+
+    <resultMap id="userMap" type="com.cloud.user.pojo.User">
+        <id property="id" column="id"></id>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"></result>
+        <result property="password" column="password" jdbcType="VARCHAR"></result>
+        <result property="salt" column="salt" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+
+    <select id="findByName" resultType="com.cloud.user.pojo.User" parameterType="string">
+        SELECT * FROM users.user WHERE user_name = #{name}
+    </select>
+
+    <select id="selectAll" resultType="com.cloud.user.pojo.User" resultMap="userMap">
+        SELECT * FROM users.user
+    </select>
+
+    <select id="update" parameterType="com.cloud.user.pojo.User">
+        update users.user set no = #{user.No} WHERE user_name = #{user.userName}
+    </select>
+
+    <select id="add" parameterType="com.cloud.user.pojo.User">
+        insert into users.user(no, user_name, password, salt) values (user.No, user.userName, user.password, user.salt)
+    </select>
+
+    <select id="deleteByName" parameterType="string">
+        SELECT * FROM users.user WHERE user_name = #{name}
+    </select>
+
+
+</mapper>
